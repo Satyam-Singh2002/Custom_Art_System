@@ -8,7 +8,7 @@ Software Requirements Specification : "https://docs.google.com/document/d/1PQaRz
 
 
 
-DDL SCRIPT
+DDL SCRIPTS:
 
 Customer Table:
 
@@ -20,8 +20,6 @@ create table customer (
 	mobile_num VARCHAR(15),
 	artist BOOLEAN
 );
-
-
 
 Designs Table:
 
@@ -36,13 +34,6 @@ create table designs (
 	foreign key(user_id) references customer(user_id) ON DELETE CASCADE ON UPDATE CASCADE
 	
 );
-
-
-
-
-
-
-
 
 Bank Details Table:
 
@@ -66,15 +57,8 @@ create table cart(
 	foreign key(design_id) references designs(design_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-
-
-
-
-
-
-
-
 Orders Table:
+
 create table orders(
 	prod_id serial Primary Key,
 	user_id int, 
@@ -92,7 +76,6 @@ create table orders(
 Shipped Orders Table:
 
 CREATE TABLE shipped_orders(
-	
 	prod_id int
 	user_id int, 
 	design_id int, 
@@ -101,6 +84,6 @@ CREATE TABLE shipped_orders(
 	size varchar(5),
 	foreign key(user_id) references customer(user_id) ON DELETE CASCADE ON UPDATE CASCADE, 
 	foreign key(design_id) references designs(design_id) ON DELETE CASCADE ON UPDATE CASCADE,
-foreign key(prod_id) references orders(prod_id) ON DELETE CASCADE ON UPDATE CASCADE, 
+    foreign key(prod_id) references orders(prod_id) ON DELETE CASCADE ON UPDATE CASCADE, 
 );
 
